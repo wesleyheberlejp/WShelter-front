@@ -1,0 +1,17 @@
+<div *ngFor="let senha of Senhas" class="card mt-3">
+  <div class="card-header">
+
+    <div class="row">
+      <div class="col-6">
+        <h5 class="card-title">{{senha.Alias}}</h5>
+      </div>
+      <div class="col-6">
+        <button (click)="ToggleSenha(senha.Id)" class="btn btn-primary btn-sm float-end">Show</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="senha.Expandir"  class="card-body">
+    <p class="card-text">Local: {{senha.Local}}</p>
+    <p class="card-text">Senha: {{senha.Senha}}</p>
+  </div>
+</div>

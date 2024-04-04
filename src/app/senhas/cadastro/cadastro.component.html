@@ -1,0 +1,33 @@
+<form *ngIf="true" class="form-cadastro" [formGroup]="CadastroForm">
+
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group">
+        <label for="localInput">Local</label>
+        <input type="text" class="form-control" id="localInput" formControlName="Local">
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <label for="senhaInput">Senha</label>
+        <input type="password" class="form-control" id="senhaInput" formControlName="Senha">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-8">
+      <div class="form-group">
+        <label for="aliasInput">Alias</label>
+        <input type="text" class="form-control" id="aliasInput" formControlName="Alias">
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label style="opacity: 0;" for="aliasInput">Fake</label>
+        <button type="submit" class="btn btn-primary form-control">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+</form>
