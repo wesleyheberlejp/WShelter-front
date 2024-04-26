@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Senha } from '../../../Models/Senha';
 import { CommonModule } from '@angular/common';
+import { SenhasService } from '../../../services/senhasService';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-lista',
@@ -14,43 +16,20 @@ export class ListaComponent implements OnInit{
 
   Senhas : Senha[] = [];
 
+  constructor(
+    private SenhasService : SenhasService
+  ){}
+
   ngOnInit(): void {
-    this.ListaSenhas();
+    this.GetSenhas()
   }
 
-  private ListaSenhas(){
-
-    this.Senhas.push({
-      Id:0,
-      Local : "www.google.com",
-      Alias : "Google",
-      Senha : "123",
-      Expandir : false
-    })
-
-    this.Senhas.push({
-      Id:1,
-      Local : "www.google.com",
-      Alias : "Google",
-      Senha : "123",
-      Expandir : false,
-    })
-
-    this.Senhas.push({
-      Id:2,
-      Local : "www.google.com",
-      Alias : "Google",
-      Senha : "123",
-      Expandir : false,
-    })
-
-    this.Senhas.push({
-      Id:3,
-      Local : "www.google.com",
-      Alias : "Google",
-      Senha : "123",
-      Expandir : false,
-    })
+  private GetSenhas(){
+    this.SenhasService.GetSenhas().subscribe(
+      (response:Senha[]) => {
+        this.Senhas = response;
+      }
+    )
   }
 
   public ToggleSenha(id : number){
